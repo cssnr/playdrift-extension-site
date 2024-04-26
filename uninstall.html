@@ -22,8 +22,8 @@ description: Uninstall Feedback
                     </div>
                     <p class="text-center">
                         Please let us know why you uninstalled {{ site.site_name }}.
-                        All bugs that get reported will be fixed!
-                        Feature Requests are also greatly appreciated...
+                        All <a href="{{ site.github_url }}/issues" target="_blank" rel="noopener">bugs that get reported</a> will be fixed!
+                        <a href="{{ site.github_url }}/discussions/categories/feature-requests" target="_blank" rel="noopener">Feature Requests</a> are also greatly appreciated...
                     </p>
                     <form id="uninstall-form">
                         <div class="form-check form-switch fs-5">
@@ -31,8 +31,12 @@ description: Uninstall Feedback
                             <label class="form-check-label text-success-emphasis" for="not-used">Do Not Need or Not Used</label>
                         </div>
                         <div class="form-check form-switch fs-5">
+                            <input class="form-check-input" type="checkbox" role="switch" id="not-expected">
+                            <label class="form-check-label text-warning-emphasis" for="not-expected">Does Not Work as Expected</label>
+                        </div>
+                        <div class="form-check form-switch fs-5">
                             <input class="form-check-input" type="checkbox" role="switch" id="not-working">
-                            <label class="form-check-label text-warning-emphasis" for="not-working">Does Not Work as Expected</label>
+                            <label class="form-check-label text-danger-emphasis" for="not-working">Not Working or Broken</label>
                         </div>
                         <div class="my-2">
                             <label for="uninstall-response" class="form-label visually-hidden">Uninstall Feedback</label>
