@@ -24,12 +24,15 @@ function formSubmit(event) {
     }
     submitBtn.classList.add('disabled')
     const lines = [
-        'Uninstall Feedback.',
-        `Not Used: **${notUsed}**`,
-        `Not as Expected: **${notExpected}**`,
-        `Not Working: **${notWorking}**`,
-        '```\n' + `${feedbackText || 'No Reason Provided.'}` + '\n```',
+        `Uninstall Feedback for PlayDrift Web Extension.`,
+        `\`${navigator.userAgent}\``,
+        `${getBoolIcon(notUsed)} Not Used`,
+        `${getBoolIcon(notExpected)} Not as Expected`,
+        `${getBoolIcon(notWorking)} Not Working`,
     ]
+    if (feedbackText) {
+        lines.push(`\`\`\`\n${feedbackText}\n\`\`\``)
+    }
     const xhr = new XMLHttpRequest()
     xhr.open('POST', url)
     xhr.setRequestHeader('Content-type', 'application/json')
@@ -52,4 +55,12 @@ function formSubmit(event) {
         }
     }
     xhr.send(JSON.stringify(params))
+}
+
+function getBoolIcon(value) {
+    if (value) {
+        return '✅'
+    } else {
+        return '🔳'
+    }
 }
