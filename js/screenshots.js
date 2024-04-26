@@ -1,7 +1,5 @@
 // JS for screenshots.html
 
-// const baseDir = '/screenshots/'
-
 const shotsEl = document.getElementById('swiper-shots')
 const thumbsEl = document.getElementById('swiper-thumbs')
 
@@ -10,7 +8,6 @@ for (const shot of screenShots) {
     const div = document.createElement('div')
     div.classList.add('swiper-slide')
     const img = document.createElement('img')
-    // img.src = `${baseDir}${shot}`
     img.src = shot
     img.alt = shot
     div.appendChild(img)

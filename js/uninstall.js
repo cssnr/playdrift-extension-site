@@ -1,5 +1,9 @@
 // JS uninstall.html
 
+const uninstallMessage = 'Uninstall Feedback for PlayDrift Web Extension.'
+const discordUsername = 'PlayDrift Extension'
+const discordAvatar = 'https://playdrift-extension.cssnr.com/media/logo.png'
+
 const uninstallForm = document.getElementById('uninstall-form')
 const uninstallResponse = document.getElementById('uninstall-response')
 const inputCount = document.getElementById('input-count')
@@ -7,7 +11,6 @@ const submitBtn = document.getElementById('submit-btn')
 const errorAlert = document.getElementById('error-alert')
 
 uninstallForm.addEventListener('submit', formSubmit)
-
 uninstallResponse.addEventListener('input', function (e) {
     inputCount.textContent = this.value.length
 })
@@ -26,7 +29,7 @@ async function formSubmit(event) {
     }
     submitBtn.classList.add('disabled')
     const lines = [
-        `Uninstall Feedback for PlayDrift Web Extension.`,
+        uninstallMessage,
         `\`${navigator.userAgent}\``,
         `${getBoolIcon(notUsed)} Not Used`,
         `${getBoolIcon(notExpected)} Not as Expected`,
@@ -52,8 +55,8 @@ async function formSubmit(event) {
 async function sendDiscord(url, content) {
     // console.debug('sendDiscord', url, content)
     const body = {
-        username: 'PlayDrift Extension',
-        avatar_url: 'https://playdrift-extension.cssnr.com/media/logo.png',
+        username: discordUsername,
+        avatar_url: discordAvatar,
         content: content,
     }
     const opts = {
