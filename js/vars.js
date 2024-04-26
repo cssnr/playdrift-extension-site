@@ -8,4 +8,5 @@ const screenShots = [
     '07.jpg',
     '08.jpg',
     '09.jpg',
+    '10.jpg',
 ]

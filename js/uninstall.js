@@ -4,53 +4,72 @@ const uninstallForm = document.getElementById('uninstall-form')
 const uninstallResponse = document.getElementById('uninstall-response')
 const inputCount = document.getElementById('input-count')
 const submitBtn = document.getElementById('submit-btn')
+const errorAlert = document.getElementById('error-alert')
+
+uninstallForm.addEventListener('submit', formSubmit)
 
 uninstallResponse.addEventListener('input', function (e) {
     inputCount.textContent = this.value.length
 })
 
-uninstallForm.addEventListener('submit', formSubmit)
-
-function formSubmit(event) {
+async function formSubmit(event) {
     console.debug('formSubmit:', event, this)
     event.preventDefault()
-    // this[0] switch   - not needed or used
-    // this[1] switch   - not working as expected
-    // this[2] textarea - feedback description
-    // this[3] input    - discord webhook url
-    // this[4] button   - submit
-    const url = this[3].value
-    if (!(this[0].checked || this[1].checked || this[2].value)) {
-        console.warn('No Data to Send.')
+    errorAlert.style.display = 'none'
+    const url = this[0].value
+    const notUsed = this[1].checked
+    const notExpected = this[2].checked
+    const notWorking = this[3].checked
+    const feedbackText = this[4].value
+    if (!(notUsed || notExpected || notWorking || feedbackText)) {
+        return console.warn('No Data to Send.')
+    }
+    submitBtn.classList.add('disabled')
+    const lines = [
+        `Uninstall Feedback for PlayDrift Web Extension.`,
+        `\`${navigator.userAgent}\``,
+        `${getBoolIcon(notUsed)} Not Used`,
+        `${getBoolIcon(notExpected)} Not as Expected`,
+        `${getBoolIcon(notWorking)} Not Working`,
+    ]
+    if (feedbackText) {
+        lines.push(`\`\`\`\n${feedbackText}\n\`\`\``)
+    }
+    // console.debug('lines:', lines)
+    const response = await sendDiscord(url, lines.join('\n'))
+    console.debug('response:', response)
+    submitBtn.classList.remove('disabled')
+    if (response.status >= 200 && response.status <= 299) {
+        console.debug('Success')
+        window.location = '/'
     } else {
-        submitBtn.classList.add('disabled')
-        const lines = [
-            'Uninstall Feedback.',
-            `Not Used: **${this[0].checked}**`,
-            `Not Working: **${this[1].checked}**`,
-            '```\n' + `${this[2].value || 'No Reason Provided.'}` + '\n```',
-        ]
-        const xhr = new XMLHttpRequest()
-        xhr.open('POST', url)
-        xhr.setRequestHeader('Content-type', 'application/json')
-        const params = {
-            username: 'PlayDrift Extension',
-            avatar_url: 'https://playdrift-extension.cssnr.com/images/logo.png',
-            content: lines.join('\n'),
-        }
-        xhr.onload = () => {
-            console.debug('xhr.status: ', xhr.status)
-            submitBtn.classList.remove('disabled')
-            if (xhr.status >= 200 && xhr.status <= 299) {
-                console.debug('SUCCESS')
-                window.location = '/'
-            } else {
-                console.log(`ERROR: ${xhr.status}`)
-                const errorEl = document.getElementById('error')
-                errorEl.textContent = `Submission Error: ${xhr.status}`
-                errorEl.style.display = 'block'
-            }
-        }
-        xhr.send(JSON.stringify(params))
+        console.warn(`Error ${response.status}`, response)
+        errorAlert.textContent = `Error ${response.status}: ${response.statusText}`
+        errorAlert.style.display = 'block'
+    }
+}
+
+async function sendDiscord(url, content) {
+    // console.debug('sendDiscord', url, content)
+    const body = {
+        username: 'PlayDrift Extension',
+        avatar_url: 'https://playdrift-extension.cssnr.com/media/logo.png',
+        content: content,
+    }
+    const opts = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+    }
+    return await fetch(url, opts)
+}
+
+function getBoolIcon(value) {
+    if (value) {
+        return '✅'
+    } else {
+        return '🔳'
     }
 }

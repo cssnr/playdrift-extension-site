@@ -22,17 +22,22 @@ description: Uninstall Feedback
                     </div>
                     <p class="text-center">
                         Please let us know why you uninstalled {{ site.site_name }}.
-                        All bugs that get reported will be fixed!
-                        Feature Requests are also greatly appreciated...
+                        All <a href="{{ site.github_url }}/issues" target="_blank" rel="noopener">bugs that get reported</a> will be fixed!
+                        <a href="{{ site.github_url }}/discussions/categories/feature-requests" target="_blank" rel="noopener">Feature Requests</a> are also greatly appreciated...
                     </p>
                     <form id="uninstall-form">
+                        <input type="hidden" value="{{ site.discord_webhook }}" id="discord-webhook" hidden="hidden">
                         <div class="form-check form-switch fs-5">
                             <input class="form-check-input" type="checkbox" role="switch" id="not-used">
                             <label class="form-check-label text-success-emphasis" for="not-used">Do Not Need or Not Used</label>
                         </div>
                         <div class="form-check form-switch fs-5">
+                            <input class="form-check-input" type="checkbox" role="switch" id="not-expected">
+                            <label class="form-check-label text-warning-emphasis" for="not-expected">Does Not Work as Expected</label>
+                        </div>
+                        <div class="form-check form-switch fs-5">
                             <input class="form-check-input" type="checkbox" role="switch" id="not-working">
-                            <label class="form-check-label text-warning-emphasis" for="not-working">Does Not Work as Expected</label>
+                            <label class="form-check-label text-danger-emphasis" for="not-working">Not Working or Broken</label>
                         </div>
                         <div class="my-2">
                             <label for="uninstall-response" class="form-label visually-hidden">Uninstall Feedback</label>
@@ -40,11 +45,10 @@ description: Uninstall Feedback
                                       placeholder="Optional Feedback. Bugs, Missing Features, etc..." autofocus></textarea>
                             <span id="inputCounter" class="float-end label label-default"><span id="input-count">0</span> / 500</span>
                         </div>
-                        <input type="hidden" value="{{ site.discord_webhook }}" name="discord_webhook" hidden="hidden">
                         <button id="submit-btn" class="btn btn-success w-100" type="submit">
                             Submit Feedback <i class="fa-regular fa-comment-dots ms-2"></i></button>
                     </form>
-                    <div id="error" class="alert alert-danger alert-dismissible fade show text-center mt-3" role="alert" style="display: none;"></div>
+                    <div id="error-alert" class="alert alert-danger alert-dismissible fade show text-center mt-3" role="alert" style="display: none;"></div>
                 </div>
             </div>
         </div>
