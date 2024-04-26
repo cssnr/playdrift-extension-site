@@ -1,0 +1,17 @@
+timezone: America/Los_Angeles
+encoding: utf-8
+
+author: Shane
+site_name: PlayDrift Extension
+site_url: https://playdrift-extension.cssnr.com
+
+discord_webhook: https://discord.com/api/webhooks/1143463238030331945/mxE_OgVcyl2mkb7XZNoNggOMn3vcUr8QhQ-LkBKNfeXdj9fHFkIbDrcIA6uRDZMEWlsG
+
+github_name: cssnr/playdrift-extension
+github_url: https://github.com/cssnr/playdrift-extension
+
+chrome_id: anlkpnbhiiojmedlkchcdmigkdccnmcn
+chrome_url: https://chromewebstore.google.com/detail/playdrift-extension/anlkpnbhiiojmedlkchcdmigkdccnmcn
+
+firefox_id: playdrift-extension
+firefox_url: https://addons.mozilla.org/addon/playdrift-extension
