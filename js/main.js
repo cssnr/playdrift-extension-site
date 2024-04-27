@@ -2,6 +2,8 @@
 
 document.addEventListener('DOMContentLoaded', domContentLoaded)
 
+const chromeID = 'anlkpnbhiiojmedlkchcdmigkdccnmcn'
+
 /**
  * DOMContentLoaded
  * @function domContentLoaded
@@ -11,10 +13,7 @@ async function domContentLoaded() {
     let profile
     if (typeof chrome !== 'undefined') {
         try {
-            profile = await chrome.runtime?.sendMessage(
-                'anlkpnbhiiojmedlkchcdmigkdccnmcn',
-                {}
-            )
+            profile = await chrome.runtime?.sendMessage(chromeID, {})
             console.debug('profile', profile)
         } catch (e) {}
     }
@@ -28,17 +27,10 @@ async function domContentLoaded() {
  */
 function enableProfile(data) {
     console.debug('enableProfile', data)
-    // document
-    //     .querySelectorAll('.loading')
-    //     .forEach((el) => el.classList.add('d-none'))
-    if (data) {
+    if (data && Object.keys(data).length) {
         updateElements(data)
         document
             .querySelectorAll('.profile')
-            .forEach((el) => el.classList.remove('d-none'))
-    } else {
-        document
-            .querySelectorAll('.no-profile')
             .forEach((el) => el.classList.remove('d-none'))
     }
 }
