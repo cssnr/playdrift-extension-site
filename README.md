@@ -3,7 +3,7 @@
 [![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/anlkpnbhiiojmedlkchcdmigkdccnmcn?label=chrome&logo=googlechrome)](https://chrome.google.com/webstore/detail/playdrift-extension/anlkpnbhiiojmedlkchcdmigkdccnmcn)
 [![Mozilla Add-on Version](https://img.shields.io/amo/v/playdrift-extension?label=firefox&logo=firefox)](https://addons.mozilla.org/addon/playdrift-extension)
 [![GitHub Release Version](https://img.shields.io/github/v/release/cssnr/playdrift-extension?logo=github)](https://github.com/cssnr/playdrift-extension/releases/latest)
-[![Manifest Version](https://img.shields.io/github/manifest-json/v/cssnr/playdrift-extension?filename=manifest.json&logo=json&label=manifest)](https://github.com/cssnr/playdrift-extension/blob/master/manifest.json)
+[![Pages](https://github.com/cssnr/playdrift-extension-site/actions/workflows/build.yaml/badge.svg)](https://github.com/cssnr/playdrift-extension-site/actions/workflows/build.yaml)
 # PlayDrift Extension Site
 
 *   Website: https://playdrift-extension.cssnr.com
@@ -29,3 +29,4 @@
   
 All **Chromium** Based Browsers can install the extension from the
 [Chrome Web Store](https://chrome.google.com/webstore/detail/playdrift-extension/anlkpnbhiiojmedlkchcdmigkdccnmcn).
+``
