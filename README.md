@@ -29,4 +29,3 @@
   
 All **Chromium** Based Browsers can install the extension from the
 [Chrome Web Store](https://chrome.google.com/webstore/detail/playdrift-extension/anlkpnbhiiojmedlkchcdmigkdccnmcn).
-``
