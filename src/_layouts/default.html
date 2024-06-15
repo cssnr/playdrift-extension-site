@@ -18,20 +18,22 @@
     <meta property="og:title" content="{{ site.site_name }} - {{ page.title }}">
     <meta property="og:description" content="{{ site.site_name }} - {{ page.description }}">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ site.site_url }}">
-    <meta property="og:image" content="{{ site.site_url }}/media/logo.png">
+    <meta property="og:url" content="{{ "/" | absolute_url }}">
+    <meta property="og:image" content="{{ "/media/logo.png" | absolute_url }}">
 
     {% if page.dark != true %}
-        <script type="text/javascript" src="/js/theme.js"></script>
+        <script type="text/javascript" src="{{ "/js/theme.js" | relative_url }}"></script>
     {% endif %}
 
-    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="{{ "/favicon.ico" | relative_url }}" sizes="any">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ "/apple-touch-icon.png" | relative_url }}">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="{{ "/css/main.css" | relative_url }}">
 
     {% if page.title == 'Uninstall' %}
-        <link rel="stylesheet" href="/css/uninstall.css">
+        <link rel="stylesheet" href="{{ "/css/uninstall.css" | relative_url }}">
     {% endif %}
 
 </head>
@@ -41,7 +43,7 @@
     <nav class="navbar navbar-expand-sm">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">
-                <img src="/media/logo.png" width="30" height="30" alt="logo"></a>
+                <img src="{{ "/media/logo.png" | relative_url }}" width="30" height="30" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -49,11 +51,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-sm-0">
-                    <li class="nav-item"><a class="nav-link {% if page.title == 'Home' %}active{% endif %}" href="/">
+                    <li class="nav-item"><a class="nav-link {% if page.title == 'Home' %}active{% endif %}" href="{{ "/" | relative_url }}">
                             Home</a></li>
-                    <li class="nav-item"><a class="nav-link {% if page.title == 'Docs' %}active{% endif %}" href="/docs/">
+                    <li class="nav-item"><a class="nav-link {% if page.title == 'Docs' %}active{% endif %}" href="{{ "/docs/" | relative_url }}">
                             Docs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/screenshots/" target="_blank">
+                    <li class="nav-item"><a class="nav-link" href="{{ "/screenshots/" | relative_url }}" target="_blank">
                             Screen Shots <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ site.github_url }}" target="_blank" rel="noopener">
                             GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
@@ -73,15 +75,21 @@
         <div class="row">
             <div class="col-12 col-sm-4">
                 <p><a class="link-body-emphasis text-decoration-none" href="{{ site.github_url }}?tab=readme-ov-file#readme" target="_blank" rel="noopener">
-                    <i class="fab fa-github"></i> {{ site.site_name }}</a></p>
+                        <i class="fab fa-github"></i> {{ site.site_name }}</a></p>
             </div>
             <div class="col-12 col-sm-8 text-sm-end">
                 <ul class="list-inline">
-                    <li class="list-inline-item"><a class="link-body-emphasis text-decoration-none {% if page.title == 'Home' %}fw-bold{% endif %}" href="/">Home</a></li>
+                    <li class="list-inline-item">
+                        <a class="link-body-emphasis text-decoration-none {% if page.title == 'Home' %}fw-bold{% endif %}" href="{{ "/" | relative_url }}">
+                            Home</a></li>
                     <li class="list-inline-item">|</li>
-                    <li class="list-inline-item"><a class="link-body-emphasis text-decoration-none {% if page.title == 'Docs' %}fw-bold{% endif %}" href="/docs/">Docs</a></li>
+                    <li class="list-inline-item">
+                        <a class="link-body-emphasis text-decoration-none {% if page.title == 'Docs' %}fw-bold{% endif %}" href="{{ "/docs/" | relative_url }}">
+                            Docs</a></li>
                     <li class="list-inline-item">|</li>
-                    <li class="list-inline-item"><a class="link-body-emphasis text-decoration-none" href="/screenshots/" target="_blank">Screen Shots <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+                    <li class="list-inline-item">
+                        <a class="link-body-emphasis text-decoration-none" href="{{ "/screenshots/" | relative_url }}" target="_blank">
+                            Screen Shots <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -89,7 +97,7 @@
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js" integrity="sha512-X/YkDZyjTf4wyc2Vy16YGCPHwAY8rZJY+POgokZjQB2mhIRFJCckEGc6YyX9eNsPfn0PzThEuNs+uaomE5CO6A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script type="text/javascript" src="/js/main.js"></script>
+<script type="text/javascript" src="{{ "/js/main.js" | relative_url }}"></script>
 
 </body>
 </html>
