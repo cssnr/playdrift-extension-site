@@ -4,7 +4,7 @@ const searchParams = new URLSearchParams(window.location.search)
 const version = searchParams.get('version') || 'unknown'
 
 const noAlertVersion = '0.4.10'
-const uninstallMessage = 'Uninstall Feedback for PlayDrift Web Extension.'
+const uninstallMessage = `Uninstall Feedback for PlayDrift Web Extension, Version: ${version}`
 const discordUsername = 'PlayDrift Extension'
 const discordAvatar = 'https://playdrift-extension.cssnr.com/media/logo.png'
 
