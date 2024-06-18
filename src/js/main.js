@@ -1,67 +1,84 @@
 // JS Main
 
-document.addEventListener('DOMContentLoaded', domContentLoaded)
+document
+    .querySelectorAll('[data-clipboard-text]')
+    .forEach((el) => el.addEventListener('click', (e) => e.preventDefault()))
 
-const chromeID = 'anlkpnbhiiojmedlkchcdmigkdccnmcn'
+const backToTop = document.getElementById('back-to-top')
 
-/**
- * DOMContentLoaded
- * @function domContentLoaded
- */
-async function domContentLoaded() {
-    console.debug('domContentLoaded')
-    let profile
-    if (typeof chrome !== 'undefined') {
-        try {
-            profile = await chrome.runtime?.sendMessage(chromeID, {})
-            console.debug('profile', profile)
-        } catch (e) {}
-    }
-    enableProfile(profile)
+if (backToTop) {
+    window.addEventListener('scroll', debounce(onScroll))
+    backToTop.addEventListener('click', () => {
+        document.body.scrollTop = 0
+        document.documentElement.scrollTop = 0
+    })
+}
+
+if (typeof ClipboardJS !== 'undefined') {
+    const clipboard = new ClipboardJS('[data-clipboard-text]')
+    clipboard.on('success', function (event) {
+        // console.debug('clipboard.success:', event)
+        // const text = event.text
+        // console.debug(`text: "${text}"`)
+        if (event.trigger.dataset.toast) {
+            showToast(event.trigger.dataset.toast)
+        } else {
+            showToast('Copied to Clipboard')
+        }
+    })
+    clipboard.on('error', function (event) {
+        // console.debug('clipboard.error:', event)
+        showToast('Clipboard Copy Failed', 'warning')
+    })
 }
 
 /**
- * Enable User Profile with Data
- * @function enableProfile
- * @param {Object} data
+ * On Scroll Callback
+ * @function onScroll
  */
-function enableProfile(data) {
-    console.debug('enableProfile', data)
-    if (data && Object.keys(data).length) {
-        updateElements(data)
-        document
-            .querySelectorAll('.profile')
-            .forEach((el) => el.classList.remove('d-none'))
+function onScroll() {
+    if (
+        document.body.scrollTop > 20 ||
+        document.documentElement.scrollTop > 20
+    ) {
+        backToTop.style.display = 'block'
+    } else {
+        backToTop.style.display = 'none'
     }
 }
 
 /**
- * Update Elements from Data
- * @function updateElements
- * @param {Object} data
+ * Show Bootstrap Toast
+ * @function showToast
+ * @param {String} message
+ * @param {String} type
  */
-function updateElements(data) {
-    // console.debug('updateElements:', data)
-    for (let [key, value] of Object.entries(data)) {
-        if (!value) {
-            // console.debug(`No value for key: ${key}`)
-            continue
-        }
-        const elements = document.querySelectorAll(`.${key}`)
-        // console.debug('elements:', elements)
-        if (!elements.length) {
-            // console.debug(`Element not found for key: ${key}`)
-            continue
-        }
-        for (const el of elements) {
-            if (el.tagName === 'SPAN') {
-                // console.debug('span.textContent:', value)
-                el.textContent = value.toString()
-            }
-            // } else if (el.tagName === 'IMG') {
-            //     console.debug('img.src:', value)
-            //     el.src = `https://h5server-avatars.b-cdn.net/${value}`
-            // }
-        }
+function showToast(message, type = 'success') {
+    console.debug(`showToast: ${type}: ${message}`)
+    const clone = document.querySelector('.d-none .toast')
+    const container = document.getElementById('toast-container')
+    if (!clone || !container) {
+        return console.warn('Missing clone or container:', clone, container)
+    }
+    const element = clone.cloneNode(true)
+    element.querySelector('.toast-body').innerHTML = message
+    element.classList.add(`text-bg-${type}`)
+    container.appendChild(element)
+    const toast = new bootstrap.Toast(element)
+    element.addEventListener('mousemove', () => toast.hide())
+    toast.show()
+}
+
+/**
+ * DeBounce Function
+ * @function debounce
+ * @param {Function} fn
+ * @param {Number} timeout
+ */
+function debounce(fn, timeout = 250) {
+    let timeoutID
+    return (...args) => {
+        clearTimeout(timeoutID)
+        timeoutID = setTimeout(() => fn(...args), timeout)
     }
 }
