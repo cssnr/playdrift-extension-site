@@ -2,14 +2,12 @@
 
 document.addEventListener('DOMContentLoaded', domContentLoaded)
 
-const chromeID = 'anlkpnbhiiojmedlkchcdmigkdccnmcn'
-
 /**
  * DOMContentLoaded
  * @function domContentLoaded
  */
 async function domContentLoaded() {
-    console.debug('domContentLoaded')
+    console.debug('chromeID:', chromeID)
     let profile
     if (typeof chrome !== 'undefined') {
         try {
