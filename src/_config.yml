@@ -6,6 +6,15 @@ url: https://playdrift-extension.cssnr.com
 author: Shane
 site_name: PlayDrift Extension
 
+menu:
+    - name: Home
+      link: /
+    - name: Docs
+      link: /docs/
+    - name: Screen Shots
+      link: /screenshots/
+      external: true
+
 github_name: cssnr/playdrift-extension
 github_url: https://github.com/cssnr/playdrift-extension
 
@@ -15,4 +24,5 @@ chrome_url: https://chromewebstore.google.com/detail/playdrift-extension/anlkpnb
 firefox_id: playdrift-extension
 firefox_url: https://addons.mozilla.org/addon/playdrift-extension
 
+discord_invite: https://discord.gg/wXy6m2X8wY
 discord_webhook: https://discord.com/api/webhooks/242137648028712961/4xM7SXClH_i8we_epG6AXMaqhueg5L5oAVf1dnLw1_el05OxZ-JVfph-QrcQwPkOMJem
