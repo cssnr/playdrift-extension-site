@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', domContentLoaded)
 /**
  * DOMContentLoaded
  * @function domContentLoaded
+ * @global chromeID
  */
 async function domContentLoaded() {
     console.debug('chromeID:', chromeID)
