@@ -27,10 +27,14 @@ if (typeof ClipboardJS !== 'undefined') {
         }
     })
     clipboard.on('error', function (event) {
-        // console.debug('clipboard.error:', event)
+        console.debug('clipboard.error:', event)
         showToast('Clipboard Copy Failed', 'warning')
     })
 }
+
+// document.addEventListener('DOMContentLoaded', function () {
+//     console.debug('DOMContentLoaded')
+// })
 
 /**
  * On Scroll Callback
@@ -81,4 +85,17 @@ function debounce(fn, timeout = 250) {
         clearTimeout(timeoutID)
         timeoutID = setTimeout(() => fn(...args), timeout)
     }
+}
+
+const animateCSS = (selector, animation, prefix = 'animate__') => {
+    const name = `${prefix}${animation}`
+    const node = document.querySelector(selector)
+    node.classList.add(`${prefix}animated`, name)
+    function handleAnimationEnd(event) {
+        event.stopPropagation()
+        node.classList.remove(`${prefix}animated`, name)
+    }
+    node.addEventListener('animationend', handleAnimationEnd, {
+        once: true,
+    })
 }

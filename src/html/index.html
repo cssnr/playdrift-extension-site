@@ -5,116 +5,136 @@ title: Home
 description: Modern Chrome Web Extension and Firefox Browser Addon for PlayDrift to view Rankings and Win/Loss Records on Player Profiles plus much more!
 ---
 
-<h1><i class="fa-solid fa-lines-leaning"></i> {{ site.site_name }}</h1>
+<div class="container-fluid">
+    <h1 class="animate__animated animate__zoomIn"><i class="fa-solid fa-link me-2"></i> {{ site.site_name }}</h1>
 
-<div class="mb-2" style="min-height: 20px;">
-    <a href="{{ site.chrome_url }}" target="_blank" rel="noopener">
-        <img src="https://img.shields.io/chrome-web-store/users/{{ site.chrome_id }}?logo=google&logoColor=white&label=google%20users" alt="Chrome Web Store Users"></a>
-    <a href="{{ site.firefox_url }}" target="_blank" rel="noopener">
-        <img src="https://img.shields.io/amo/users/{{ site.firefox_id }}?logo=mozilla&label=mozilla%20users" alt="Mozilla Add-on Users"></a>
-    <a href="{{ site.chrome_url }}" target="_blank" rel="noopener">
-        <img src="https://img.shields.io/chrome-web-store/v/{{ site.chrome_id }}?label=chrome&logo=googlechrome" alt="Chrome Web Store Version"></a>
-    <a href="{{ site.firefox_url }}" target="_blank" rel="noopener">
-        <img src="https://img.shields.io/amo/v/{{ site.firefox_id }}?label=firefox&logo=firefox" alt="Mozilla Add-on Version"></a>
-    <a href="{{ site.github_url }}/releases/latest" target="_blank" rel="noopener">
-        <img src="https://img.shields.io/github/v/release/{{ site.github_name }}?logo=github" alt="GitHub Release Version"></a>
-    <a href="{{ site.discord_invite }}" title="GitHub" target="_blank" rel="noopener">
-        <img src="https://img.shields.io/discord/899171661457293343?logo=discord&logoColor=white&label=discord&color=7289da" alt="Join Discord"></a>
-</div>
+    <div class="mb-2" style="min-height: 28px;">
+        <a href="{{ site.chrome_url }}" title="Google" target="_blank" rel="noopener">
+            <img alt="Chrome Web Store Users" class="mb-1" src="https://img.shields.io/chrome-web-store/users/{{ site.chrome_id }}?style=for-the-badge&logo=google&logoColor=white&label=google%20users"></a>
+        <a href="{{ site.firefox_url }}" title="Mozilla" target="_blank" rel="noopener">
+            <img alt="Mozilla Add-on Users" class="mb-1" src="https://img.shields.io/amo/users/{{ site.firefox_id }}?style=for-the-badge&logo=mozilla&label=mozilla%20users"></a>
+        <a href="{{ site.github_url }}" title="GitHub" target="_blank" rel="noopener">
+            <img alt="GitHub Stars" class="mb-1" src="https://img.shields.io/github/stars/{{ site.github_name }}?style=for-the-badge&logo=github&logoColor=white"></a>
+        <a href="{{ site.chrome_url }}" title="Google" target="_blank" rel="noopener">
+            <img alt="Chrome Web Store Version" class="mb-1" src="https://img.shields.io/chrome-web-store/v/{{ site.chrome_id }}?style=for-the-badge&label=chrome&logo=googlechrome"></a>
+        <a href="{{ site.firefox_url }}" title="Mozilla" target="_blank" rel="noopener">
+            <img alt="Mozilla Add-on Version" class="mb-1" src="https://img.shields.io/amo/v/{{ site.firefox_id }}?style=for-the-badge&label=firefox&logo=firefox"></a>
+        <a href="{{ site.github_url }}/releases/latest" title="GitHub" target="_blank" rel="noopener">
+            <img alt="GitHub Release Version" class="mb-1" src="https://img.shields.io/github/v/release/{{ site.github_name }}?style=for-the-badge&logo=github"></a>
+        <a href="{{ site.discord_invite }}" title="Discord" target="_blank" rel="noopener">
+            <img alt="Join Discord" class="mb-1" src="https://img.shields.io/discord/{{ site.discord_server }}?style=for-the-badge&logo=discord&logoColor=white&label=discord&color=7289da"></a>
+    </div>
 
-<p class="lead d-none profile mt-3">
-    Hello <span class="fw-bold username"></span>, welcome to the PlayDrift Extension website, and thank you for using the PlayDrift Extension!
-</p>
+    <p class="lead d-none profile mt-3">
+        Hello <span class="fw-bold username"></span>, welcome to the PlayDrift Extension website, and thank you for using the PlayDrift Extension!
+    </p>
 
-<p class="lead">
-    Modern Chrome Web Extension and Firefox Browser Addon for PlayDrift to view Rankings and Win/Loss Records on Player Profiles plus much more!
-    See the Features list below for a full list of features and
-    <a href="https://github.com/cssnr/playdrift-extension?tab=readme-ov-file#problems-solved" target="_blank" rel="noopener">
-        Problems Solved</a> for some of the most useful features.
-</p>
+    <p class="lead">
+        Modern Chrome Web Extension and Firefox Browser Addon for PlayDrift to view Rankings and Win/Loss Records on Player Profiles plus much more!
+        See the Features list below for a full list of features and
+        <a href="https://github.com/cssnr/playdrift-extension?tab=readme-ov-file#problems-solved" target="_blank" rel="noopener">
+            Problems Solved</a> for some of the most useful features.
+    </p>
 
-<div class="ms-1 mb-3" style="min-height: 48px;">
-    <a href="{{ site.chrome_url }}" title="Chrome" target="_blank" rel="noopener">
-        <img alt="Chrome" src="https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/chrome_48.png" width="48" height="48" /></a>
-    <a href="{{ site.firefox_url }}" title="Firefox" target="_blank" rel="noopener">
-        <img alt="Firefox" src="https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/firefox_48.png" width="48" height="48" /></a>
-    <a href="{{ site.chrome_url }}" title="Edge" target="_blank" rel="noopener">
-        <img alt="Edge" src="https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/edge_48.png" width="48" height="48" /></a>
-    <a href="{{ site.chrome_url }}" title="Opera" target="_blank" rel="noopener">
-        <img alt="Opera" src="https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/opera_48.png" width="48" height="48" /></a>
-    <a href="{{ site.chrome_url }}" title="Brave" target="_blank" rel="noopener">
-        <img alt="Brave" src="https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/brave_48.png" width="48" height="48" /></a>
-    <a href="{{ site.chrome_url }}" title="Chromium" target="_blank" rel="noopener">
-        <img alt="Chromium" src="https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/chromium_48.png" width="48" height="48" /></a>
-</div>
+    <div class="d-flex mb-3 browser-icons" style="min-height: 48px;">
+        <a href="{{ site.chrome_url }}" title="Chrome" class="px-1 hvr-grow-lg" target="_blank" rel="noopener">
+            <img alt="Chrome" src="https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/chrome_48.png" width="48" height="auto"
+                 class="mw-100 animate__animated animate__rotateIn animate__slow" /></a>
+        <a href="{{ site.firefox_url }}" title="Firefox" class="px-1 hvr-grow-lg" target="_blank" rel="noopener">
+            <img alt="Firefox" src="https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/firefox_48.png" width="48" height="auto"
+                 class="mw-100 animate__animated animate__rotateIn animate__slow" /></a>
+        <a href="{{ site.chrome_url }}" title="Edge" class="px-1 hvr-grow-lg" target="_blank" rel="noopener">
+            <img alt="Edge" src="https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/edge_48.png" width="48" height="auto"
+                 class="mw-100 animate__animated animate__rotateIn animate__slow" /></a>
+        <a href="{{ site.chrome_url }}" title="Opera" class="px-1 hvr-grow-lg" target="_blank" rel="noopener">
+            <img alt="Opera" src="https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/opera_48.png" width="48" height="auto"
+                 class="mw-100 animate__animated animate__rotateIn animate__slow" /></a>
+        <a href="{{ site.chrome_url }}" title="Brave" class="px-1 hvr-grow-lg" target="_blank" rel="noopener">
+            <img alt="Brave" src="https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/brave_48.png" width="48" height="auto"
+                 class="mw-100 animate__animated animate__rotateIn animate__slow" /></a>
+        <a href="{{ site.chrome_url }}" title="Chromium" class="px-1 hvr-grow-lg" target="_blank" rel="noopener">
+            <img alt="Chromium" src="https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/chromium_48.png" width="48" height="auto"
+                 class="mw-100 animate__animated animate__rotateIn animate__slow" /></a>
+    </div>
 
-<h2>Features</h2>
+    <h2>Features</h2>
 
-<ul>
-    <li>Track Recent Game History, Wins/Losses, Rating and Date</li>
-    <li>Show Players Rating and Record (Win/Loss)</li>
-    <li>Show Stats Tooltip on Mouse Over Icon</li>
-    <li>Show Stats on Icon on Mouse Over Icon</li>
-    <li>Send Player Stats to Chat on User Join</li>
-    <li>Send Your Own Stats to Chat When You Join</li>
-    <li>Send Player Leaving Active Game Alerts to Chat</li>
-    <li>Send Team Change Alerts to Chat</li>
-    <li>Send Player Kicked Alerts to Chat</li>
-    <li>Keep Team Set After Selecting One</li>
-    <li>Add Cancel Ready Button if you are the Room Owner</li>
-    <li>Auto Update Game Options Dialog on Room Creation</li>
-    <li>Minimize Room Display by Reducing Paddings</li>
-    <li>Play Audio on Your Turn to Make a Move</li>
-    <li>Play Audio When Users Join or Leave a Room</li>
-    <li>Play Audio When Users Changes Teams</li>
-    <li>Play Audio on New Inbox Message</li>
-    <li>Play Audio on New Chat Message</li>
-    <li>Play Chat Message as Audio (TTS)</li>
-    <li>Ban User Feature w/ Auto Kick Banned Option</li>
-    <li>Auto Kick Users Below Set Win Rate Percentage</li>
-    <li>Auto Kick Users Below Set Total Games Played</li>
-    <li>Auto Continue Through the Game Stats at End of Game</li>
-    <li>Send Customizable Message on Game Start and Stats at End</li>
-    <li>Show Remaining Dominoes and Optionally Exclude Your Own</li>
-    <li>Add Custom Chat Commands that Anybody can Use</li>
-    <li>Close Profiles by Clicking Anywhere Outside the Profile</li>
-    <li>Show List of Kicked Players in Room below Players</li>
-    <li>Extended Kick Menu with Kick Reasons Sent to Chat</li>
-</ul>
+    <ul>
+        <li>Track Recent Game History, Wins/Losses, Rating and Date</li>
+        <li>Show Players Rating and Record (Win/Loss)</li>
+        <li>Show Stats Tooltip on Mouse Over Icon</li>
+        <li>Show Stats on Icon on Mouse Over Icon</li>
+        <li>Send Player Stats to Chat on User Join</li>
+        <li>Send Your Own Stats to Chat When You Join</li>
+        <li>Send Player Leaving Active Game Alerts to Chat</li>
+        <li>Send Team Change Alerts to Chat</li>
+        <li>Send Player Kicked Alerts to Chat</li>
+        <li>Keep Team Set After Selecting One</li>
+        <li>Add Cancel Ready Button if you are the Room Owner</li>
+        <li>Auto Update Game Options Dialog on Room Creation</li>
+        <li>Minimize Room Display by Reducing Paddings</li>
+        <li>Play Audio on Your Turn to Make a Move</li>
+        <li>Play Audio When Users Join or Leave a Room</li>
+        <li>Play Audio When Users Changes Teams</li>
+        <li>Play Audio on New Inbox Message</li>
+        <li>Play Audio on New Chat Message</li>
+        <li>Play Chat Message as Audio (TTS)</li>
+        <li>Ban User Feature w/ Auto Kick Banned Option</li>
+        <li>Auto Kick Users Below Set Win Rate Percentage</li>
+        <li>Auto Kick Users Below Set Total Games Played</li>
+        <li>Auto Continue Through the Game Stats at End of Game</li>
+        <li>Send Customizable Message on Game Start and Stats at End</li>
+        <li>Show Remaining Dominoes and Optionally Exclude Your Own</li>
+        <li>Add Custom Chat Commands that Anybody can Use</li>
+        <li>Close Profiles by Clicking Anywhere Outside the Profile</li>
+        <li>Show List of Kicked Players in Room below Players</li>
+        <li>Extended Kick Menu with Kick Reasons Sent to Chat</li>
+    </ul>
 
-<p>To see more, view the <a class="" href="{{ "/screenshots/" | relative_url }}" target="_blank">Screen Shot Gallery</a>.</p>
+    <p>To see more, view the <a class="link-body-emphasis" href="{{ "/screenshots/" | relative_url }}">Screen Shot Gallery</a>.</p>
 
-<h2>Install</h2>
+    <h2>Install</h2>
 
-<p class="ms-3">
-    <i class="fa-brands fa-chrome fa-lg me-1"></i>
-    <a href="{{ site.chrome_url }}" target="_blank" rel="noopener">Google Chrome Web Store</a>
-    <br>
-    <i class="fa-brands fa-firefox-browser fa-lg me-1"></i>
-    <a href="{{ site.firefox_url }}" target="_blank" rel="noopener">Mozilla Firefox Add-ons</a>
-</p>
+    <p class="ms-3">
+        <i class="fa-brands fa-chrome fa-lg me-1"></i>
+        <a href="{{ site.chrome_url }}" target="_blank" rel="noopener">Google Chrome Web Store</a>
+        <br>
+        <i class="fa-brands fa-firefox-browser fa-lg me-1"></i>
+        <a href="{{ site.firefox_url }}" target="_blank" rel="noopener">Mozilla Firefox Add-ons</a>
+    </p>
 
-<p>
-    All <strong>Chromium</strong> Based Browsers can install the extension from the
-    <a href="{{ site.chrome_url }}" target="_blank">Chrome Web Store</a>.
-</p>
+    <p>
+        All <strong>Chromium</strong> Based Browsers can install the extension from the
+        <a href="{{ site.chrome_url }}" target="_blank">Chrome Web Store</a>.
+    </p>
 
-<h2>Support</h2>
+    <h2>Support</h2>
 
-<p>
-    For usage instructions, head over to the
-    <a href="{{ "/docs/" | relative_url }}" class="link-body-emphasis link-offset-1 link-underline-opacity-50 link-underline-opacity-75-hover">
-        Documentation</a>.
-</p>
+    <p>
+        For usage instructions, head over to the
+        <a href="{{ "/docs/" | relative_url }}" class="link-body-emphasis link-offset-1 link-underline-opacity-50 link-underline-opacity-75-hover">
+            Documentation</a>.
+    </p>
 
-<p>
-    If you find any bugs please
-    <a href="{{ site.github_url }}/issues" target="_blank" rel="noopener">Open an Issue</a>.
-    If you have any ideas, suggestions, or requests; submit a
-    <a href="{{ site.github_url }}/discussions/categories/feature-requests" target="_blank" rel="noopener">Feature Request</a>.
-    You may also get support on the
-    <a href="{{ site.discord_invite }}" target="_blank" rel="noopener">Discord Server</a>.
-</p>
+    <p>
+        If you find any bugs please
+        <a href="{{ site.github_url }}/issues" target="_blank" rel="noopener">Open an Issue</a>.
+        <br>
+        If you have any ideas, suggestions, or requests; submit a
+        <a href="{{ site.github_url }}/discussions/categories/feature-requests" target="_blank" rel="noopener">Feature Request</a>.
+        <br>
+        You may also get support on the
+        <a href="{{ site.discord_invite }}" target="_blank" rel="noopener">Discord Server</a>.
+    </p>
+
+    <p>
+        You can find additional apps on the
+        <a href="https://cssnr.github.io/" target="_blank" rel="noopener">CSSNR Website</a>
+        as well as submit
+        <a href="{{ site.feedback_link }}" target="_blank" rel="noopener">
+            General Feedback</a>.
+    </p>
+</div> <!-- container -->
 
 <script type="text/javascript">const chromeID = "{{ site.chrome_id }}"</script>
 <script type="text/javascript" src="{{ "/js/extension.js" | relative_url }}"></script>
